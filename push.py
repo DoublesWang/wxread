@@ -87,6 +87,26 @@ class PushNotification:
                     logger.info("将在 %d 秒后重试...", sleep_time)
                     time.sleep(sleep_time)
 
+    def push_serverchan(self, content):
+        """Server酱消息推送"""
+        attempts = 5
+        for attempt in range(attempts):
+            try:
+                data = {
+                    "title": "微信阅读推送...",
+                    "desp": content
+                }
+                response = requests.post(self.serverchan_url, data=data, timeout=10)
+                response.raise_for_status()
+                logger.info("✅ Server酱响应: %s", response.text)
+                break
+            except requests.exceptions.RequestException as e:
+                logger.error("❌ Server酱推送失败: %s", e)
+                if attempt < attempts - 1:
+                    sleep_time = random.randint(180, 360)
+                    logger.info("将在 %d 秒后重试...", sleep_time)
+                    time.sleep(sleep_time)
+
 
 """外部调用"""
 
