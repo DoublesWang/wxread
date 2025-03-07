@@ -22,7 +22,7 @@ class PushNotification:
         }
         self.wxpusher_simple_url = "https://wxpusher.zjiecode.com/api/send/message/{}/{}"
         # 新增 Server酱的 URL
-        self.serverchan_url = "https://sct.ftqq.com/sendkey"
+        self.serverchan_url = "https://sctapi.ftqq.com/SCT99794TEYPf4cc5898NIfyvvarviu0H.send"
 
     def push_pushplus(self, content, token):
         """PushPlus消息推送"""
