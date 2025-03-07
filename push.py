@@ -124,5 +124,7 @@ def push(content, method):
         return notifier.push_telegram(content, bot_token, chat_id)
     elif method == "wxpusher":
         return notifier.push_wxpusher(content, WXPUSHER_SPT)
+    elif method == "serverchan":
+        return notifier.push_serverchan(content)
     else:
-        raise ValueError("❌ 无效的通知渠道，请选择 'pushplus'、'telegram' 或 'wxpusher'")
+        raise ValueError("❌ 无效的通知渠道，请选择 'pushplus'、'telegram'、'wxpusher' 或 'serverchan'")
