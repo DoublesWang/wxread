@@ -21,6 +21,8 @@ class PushNotification:
             'https': os.getenv('https_proxy')
         }
         self.wxpusher_simple_url = "https://wxpusher.zjiecode.com/api/send/message/{}/{}"
+        # 新增 Server酱的 URL
+        self.serverchan_url = "https://sct.ftqq.com/sendkey"
 
     def push_pushplus(self, content, token):
         """PushPlus消息推送"""
