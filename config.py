@@ -73,8 +73,9 @@ def convert(curl_command):
     cookies = {}
     cookie_string = headers.pop('cookie', '')
     for cookie in cookie_string.split('; '):
-        key, value = cookie.split('=', 1)
-        cookies[key] = value
+        if '=' in cookie:
+            key, value = cookie.split('=', 1)
+            cookies[key] = value
 
     return headers, cookies
 
